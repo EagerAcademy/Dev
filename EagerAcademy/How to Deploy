@@ -1,0 +1,5 @@
+cd bundle/programs/server/
+sudo rm -R ./npm/npm-bcrypt/node_modules/bcrypt
+sudo npm install bcrypt
+sudo rm -R ./npm/email/node_modules/simplesmtp
+sudo npm install simplesmtp
