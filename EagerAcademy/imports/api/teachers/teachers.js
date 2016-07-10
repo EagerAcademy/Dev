@@ -43,17 +43,17 @@ Teachers.deny({
 });
 
 Teachers.schema = new SimpleSchema({
+  _id: { //Unique school identifier the teacher associated with
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    denyUpdate: true,
+  },
   teacherId: {//Unique teacher identifier the course associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     denyUpdate: true,
   },
   schoolId: { //Unique school identifier the teacher associated with
-    type: String,
-    regEx: SimpleSchema.RegEx.Id,
-    denyUpdate: true,
-  },
-  userId: { //Unique school identifier the teacher associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     denyUpdate: true,
@@ -105,7 +105,7 @@ Students.publicFields = {
 */
 // Factory for defining student
 Factory.define('teacher', Teachers, {
-  userId: () => _.uniqueId(),
+  _id: () => _.uniqueId(),
 });
 
 /*

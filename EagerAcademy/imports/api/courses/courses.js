@@ -46,6 +46,11 @@ Courses.deny({
 
 Courses.schema = new SimpleSchema({
   name: { type: String, },
+  _id: {
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    denyUpdate: true,
+  },
   courseId: { //Unique course identifier the teacher is associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,

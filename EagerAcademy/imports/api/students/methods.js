@@ -5,6 +5,8 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 
 import { Students } from './students.js';
+import { Courses } from '../courses/courses.js';
+import { Teachers } from '../teachers/teachers.js';
 
 
 export const updatePoints = new ValidatedMethod({

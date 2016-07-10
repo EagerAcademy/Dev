@@ -43,6 +43,11 @@ Students.deny({
 });
 
 Students.schema = new SimpleSchema({
+  _id: { //Unique student/user identifier within the system (Persistance of account between schools)
+    type: String,
+    regEx: SimpleSchema.RegEx.Id,
+    denyUpdate: true,
+  },
   studentId: { //Unique student identifier relative to the school
     type: String,
     regEx: SimpleSchema.RegEx.Id,
@@ -50,11 +55,6 @@ Students.schema = new SimpleSchema({
     denyUpdate: false,
   },
   schoolId: { //Unique school identifier the student associated with
-    type: String,
-    regEx: SimpleSchema.RegEx.Id,
-    denyUpdate: true,
-  },
-  userId: { //Unique student/user identifier within the system (Persistance of account between schools)
     type: String,
     regEx: SimpleSchema.RegEx.Id,
     denyUpdate: true,
@@ -105,7 +105,7 @@ Students.publicFields = {
 */
 // Factory for defining student
 Factory.define('student', Students, {
-  userId: () => _.uniqueId(),
+  _id: () => _.uniqueId(),
 });
 
 /*

@@ -5,22 +5,23 @@ import { chai, assert } from 'meteor/practicalmeteor:chai';
 import { Random } from 'meteor/random';
 import { _ } from 'meteor/underscore';
 
-import { Students } from './students.js';
+import { Teachers } from './teachers.js';
 
 if(Meteor.isServer) {
   require('./server/publications.js');
   
-  describe('students', function() {
+  describe('teachers', function() {
     describe('mutators', function() {
       it('builds correctly from factory', function() {
-        const student = Factory.create('student');
-        assert.typeOf(student, 'object');
-        assert.typeOf(student._id, 'String');
+        const teacher = Factory.create('teacher');
+        assert.typeOf(teacher, 'object');
+        assert.typeOf(teacher._id, 'String');
       });
     });
   });
   
-  
-  //TODO:: More Tests
+  /*
+  --::TODO::--
+    - Implement more Tests
+  */
 }
-
