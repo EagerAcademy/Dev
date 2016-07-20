@@ -8,7 +8,9 @@ import { Students } from './students.js';
 import { Courses } from '../courses/courses.js';
 import { Teachers } from '../teachers/teachers.js';
 
-
+/*
+--::TODO::--
+*/
 export const updatePoints = new ValidatedMethod({
   /*name: 'student.updatePoints',
   validate: new SimpleSchema({
@@ -16,4 +18,15 @@ export const updatePoints = new ValidatedMethod({
   }).validate(),
   run()
   */
+});
+
+
+/*
+--::TODO::--
+*/
+export const addCourse = new ValidatedMethod({
+ /* name: 'student.addCourse',
+  validate: new SimpleSchema({
+    
+  }),*/
 });

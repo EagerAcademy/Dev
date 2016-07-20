@@ -57,7 +57,7 @@ Students.schema = new SimpleSchema({
   schoolId: { //Unique school identifier the student associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    denyUpdate: true,
+    denyUpdate: false,
   },
   firstName: {
     type: String,

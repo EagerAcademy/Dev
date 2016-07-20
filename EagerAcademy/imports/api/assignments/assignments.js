@@ -37,11 +37,19 @@ Assignments.schema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Id,
     denyUpdate: true,
   },
+  submitterId: {
+    type: String,
+    egEx: SimpleSchema.RegEx.Id,
+    denyUpdate: false,
+  },
   name: { type: String, },
   startDate: {
     type: Date,
   },
   dueDate: {
+    type: Date,
+  },
+  submissionDate: {
     type: Date,
   },
   studentComments: {

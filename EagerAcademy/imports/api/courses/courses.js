@@ -61,7 +61,6 @@ Courses.schema = new SimpleSchema({
     regEx: SimpleSchema.RegEx.Id,
     denyUpdate: true,
   },
-  teacher: { type: Teachers, },
   teacherId: {//Unique teacher identifier the course associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
