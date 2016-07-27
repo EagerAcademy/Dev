@@ -51,12 +51,12 @@ Teachers.schema = new SimpleSchema({
   teacherId: {//Unique teacher identifier the course associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    denyUpdate: true,
+    denyUpdate: false,
   },
   schoolId: { //Unique school identifier the teacher associated with
     type: String,
     regEx: SimpleSchema.RegEx.Id,
-    denyUpdate: true,
+    denyUpdate: false,
   },
   formalName: {
     type: String,
