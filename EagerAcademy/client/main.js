@@ -1,4 +1,4 @@
-// //Rolling Yearly Cummitalive Events DONE
+// //Rolling Yearly Cumulative Events DONE
 // //Q1'14-Q1'15 -> Q2'14-Q2'15 DONE
 // //Bill, Mark, Dan, Vince - SMS App Icon
 // //Jan 6 - Finalize Report Function and check on outstanding suppliers not yet registered
@@ -789,9 +789,9 @@
 Router.configure({
     layoutTemplate: 'main'
 });
-// //Client Side Information
-// if (Meteor.isClient) {
-//     //Clients are able to access MongoDB Collections with permissions
+//Client Side Information
+if (Meteor.isClient) {
+    //Clients are able to access MongoDB Collections with permissions
 //     Meteor.subscribe('userList');
 //     Meteor.subscribe('companies_Test');
 //     Meteor.subscribe('events_Test');
@@ -938,28 +938,28 @@ Router.configure({
 //             }
 //         }
 //     });
-//     Template.login.events({
-//         'submit form': function (event) {
-//             event.preventDefault();
-//             var usernameVar = event.target.loginUsername.value;
-//             var passwordVar = event.target.loginPassword.value;
-//             Meteor.loginWithPassword(usernameVar, passwordVar, function (error) {
-//                 if (error) {
-//                     alert(error.reason);
-//                 } else {
-//                     if (usernameVar == 'admin') {
-//                         Router.go('/companies');
-//                     }
-//                     else if (usernameVar == 'supplier') {
-//                         Router.go('/companies/newCompany')
-//                     }
-//                     else if (usernameVar == 'employee') {
-//                         Router.go('/events');
-//                     }
-//                 }
-//             });
-//         }
-//     }),
+    Template.teacher_login_page.events({
+        'submit form': function (event) {
+            event.preventDefault();
+            var usernameVar = event.target.loginUsername.value;
+            var passwordVar = event.target.loginPassword.value;
+            Meteor.loginWithPassword(usernameVar, passwordVar, function (error) {
+                if (error) {
+                    alert(error.reason);
+                } else {
+                    if (usernameVar == 'admin') {
+                        Router.go('/companies');
+                    }
+                    else if (usernameVar == 'supplier') {
+                        Router.go('/companies/newCompany')
+                    }
+                    else if (usernameVar == 'employee') {
+                        Router.go('/events');
+                    }
+                }
+            });
+        }
+    })
 //         Template.register.events({
 //             'submit form': function () {
 //                 event.preventDefault();
@@ -1347,51 +1347,51 @@ Router.configure({
 //         //Accounts.setPassword("a3kfibffCKYHi7Eaw","tlsms");
 //         //Accounts.setPassword("3gjAt8dz5a4yeosT7","tlemployee");
 //         //console.log(Meteor.users.find({}).fetch());
-//         if (!Meteor.users.find()) {
-//             var users = [
-//                 {name: "Admin User", username: "admin", roles: ['admin']},
-//                 {name: "Employee User", username: "employee", roles: ['employee']},
-//                 {name: "Supplier User", username: "supplier", roles: ['supplier']}
-//             ];
-//             _.each(users, function (user) {
-//                 if (user.username == "admin") {
-//                     var id = Accounts.createUser({
-//                         username: user.username,
-//                         password: "tlsms",
-//                         profile: {name: user.name}
-//                     });
-//                     if (user.roles.length > 0) {
-//                         // Need _id of existing user record so this call must come
-//                         // after `Accounts.createUser` or `Accounts.onCreate`
-//                         Roles.addUsersToRoles(id, user.roles, Roles.GLOBAL_GROUP);
-//                     }
-//                 }
-//                 else if (user.username == "employee") {
-//                     var id = Accounts.createUser({
-//                         username: user.username,
-//                         password: "tlemployee",
-//                         profile: {name: user.name}
-//                     });
-//                     if (user.roles.length > 0) {
-//                         // Need _id of existing user record so this call must come
-//                         // after `Accounts.createUser` or `Accounts.onCreate`
-//                         Roles.addUsersToRoles(id, user.roles);
-//                     }
-//                 }
-//                 else if (user.username == "supplier") {
-//                     var id = Accounts.createUser({
-//                         username: user.username,
-//                         password: "apple1",
-//                         profile: {name: user.name}
-//                     });
-//                     if (user.roles.length > 0) {
-//                         // Need _id of existing user record so this call must come
-//                         // after `Accounts.createUser` or `Accounts.onCreate`
-//                         Roles.addUsersToRoles(id, user.roles);
-//                     }
-//                 }
-//             });
-//         }
+        if (!Meteor.users.find()) {
+            var users = [
+                {name: "Admin User", username: "admin", roles: ['admin']},
+                {name: "Employee User", username: "employee", roles: ['employee']},
+                {name: "Supplier User", username: "supplier", roles: ['supplier']}
+            ];
+            _.each(users, function (user) {
+                if (user.username == "admin") {
+                    var id = Accounts.createUser({
+                        username: user.username,
+                        password: "tlsms",
+                        profile: {name: user.name}
+                    });
+                    if (user.roles.length > 0) {
+                        // Need _id of existing user record so this call must come
+                        // after `Accounts.createUser` or `Accounts.onCreate`
+                        Roles.addUsersToRoles(id, user.roles, Roles.GLOBAL_GROUP);
+                    }
+                }
+                else if (user.username == "employee") {
+                    var id = Accounts.createUser({
+                        username: user.username,
+                        password: "tlemployee",
+                        profile: {name: user.name}
+                    });
+                    if (user.roles.length > 0) {
+                        // Need _id of existing user record so this call must come
+                        // after `Accounts.createUser` or `Accounts.onCreate`
+                        Roles.addUsersToRoles(id, user.roles);
+                    }
+                }
+                else if (user.username == "supplier") {
+                    var id = Accounts.createUser({
+                        username: user.username,
+                        password: "apple1",
+                        profile: {name: user.name}
+                    });
+                    if (user.roles.length > 0) {
+                        // Need _id of existing user record so this call must come
+                        // after `Accounts.createUser` or `Accounts.onCreate`
+                        Roles.addUsersToRoles(id, user.roles);
+                    }
+                }
+            });
+        }
 //     });
 //     Meteor.publish('companies_Test', function () {
 //         if (Roles.userIsInRole(this.userId, ['admin', 'employee'])) {
@@ -1507,10 +1507,10 @@ Router.configure({
 //             }
 //         }
 //     });
-// }
-//
-// //Routing Functionality that sets up the URLs
-//
+}
+
+//Routing Functionality that sets up the URLs
+
 Router.route('/', function () {
     this.render('home');
 });
@@ -1519,9 +1519,14 @@ Router.route('/teachers', function () {
     this.render('teacher_login_page');
 });
 
+Router.route('/teachers/home', function () {
+    this.render('teacher_home_page');
+});
+
 Router.route('/students', function () {
     this.render('student_login_page');
 });
+
 //
 // Router.route('/login');
 //
