@@ -30,3 +30,19 @@ export const submitAssignment = new ValidatedMethod({
     
   }),*/
 });
+
+const ASSIGNMENTS_METHODS = _.pluck([
+  createAssignment,
+  submitAssignment,
+], 'name');
+
+if(Meteor.isServer){
+  DDPRateLimiter.addRule({
+    name(name) {
+      return _.contains(ASSIGNMENTS_METHODS, name);
+    },
+
+    // Rate limit per connection ID
+    connectionId() { return true; },
+  }, 10, 1000);
+}

@@ -42,3 +42,20 @@ export const appendTeachers = new ValidatedMethod({
     
   }),*/
 });
+
+const SCHOOLS_METHODS = _.pluck([
+  registerSchool,
+  appendStudents,
+  appendTeachers,
+], 'name');
+
+if(Meteor.isServer){
+  DDPRateLimiter.addRule({
+    name(name) {
+      return _.contains(SCHOOLS_METHODS, name);
+    },
+
+    // Rate limit per connection ID
+    connectionId() { return true; },
+  }, 10, 1000);
+}

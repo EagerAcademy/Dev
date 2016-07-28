@@ -42,3 +42,20 @@ export const joinCourse = new ValidatedMethod({
     
   }),*/
 });
+
+const COURSES_METHODS = _.pluck([
+  createCourse,
+  appendAssignment,
+  joinCourse,
+], 'name');
+
+if(Meteor.isServer){
+  DDPRateLimiter.addRule({
+    name(name) {
+      return _.contains(COURSES_METHODS, name);
+    },
+
+    // Rate limit per connection ID
+    connectionId() { return true; },
+  }, 10, 1000);
+}
