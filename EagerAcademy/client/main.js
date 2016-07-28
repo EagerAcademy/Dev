@@ -1,4 +1,10 @@
-// //Rolling Yearly Cumulative Events DONE
+// import '/imports/startup/client/useraccounts-configuration.js';
+// import { FlowRouter } from 'meteor/kadira:flow-router';
+// import { BlazeLayout } from 'meteor/kadira:blaze-layout';
+// import { AccountsTemplates } from 'meteor/useraccounts:core';
+import { Factory } from 'meteor/dburles:factory';
+import '/imports/startup/client';
+/// / //Rolling Yearly Cumulative Events DONE
 // //Q1'14-Q1'15 -> Q2'14-Q2'15 DONE
 // //Bill, Mark, Dan, Vince - SMS App Icon
 // //Jan 6 - Finalize Report Function and check on outstanding suppliers not yet registered
@@ -786,9 +792,9 @@
 //
 //
 //Configures the main layout of Web App
-Router.configure({
-    layoutTemplate: 'main'
-});
+// Router.configure({
+//     layoutTemplate: 'main'
+// });
 //Client Side Information
 if (Meteor.isClient) {
     //Clients are able to access MongoDB Collections with permissions
@@ -959,7 +965,7 @@ if (Meteor.isClient) {
                 }
             });
         }
-    })
+    });
 //         Template.register.events({
 //             'submit form': function () {
 //                 event.preventDefault();
@@ -1347,51 +1353,51 @@ if (Meteor.isClient) {
 //         //Accounts.setPassword("a3kfibffCKYHi7Eaw","tlsms");
 //         //Accounts.setPassword("3gjAt8dz5a4yeosT7","tlemployee");
 //         //console.log(Meteor.users.find({}).fetch());
-        if (!Meteor.users.find()) {
-            var users = [
-                {name: "Admin User", username: "admin", roles: ['admin']},
-                {name: "Employee User", username: "employee", roles: ['employee']},
-                {name: "Supplier User", username: "supplier", roles: ['supplier']}
-            ];
-            _.each(users, function (user) {
-                if (user.username == "admin") {
-                    var id = Accounts.createUser({
-                        username: user.username,
-                        password: "tlsms",
-                        profile: {name: user.name}
-                    });
-                    if (user.roles.length > 0) {
-                        // Need _id of existing user record so this call must come
-                        // after `Accounts.createUser` or `Accounts.onCreate`
-                        Roles.addUsersToRoles(id, user.roles, Roles.GLOBAL_GROUP);
-                    }
-                }
-                else if (user.username == "employee") {
-                    var id = Accounts.createUser({
-                        username: user.username,
-                        password: "tlemployee",
-                        profile: {name: user.name}
-                    });
-                    if (user.roles.length > 0) {
-                        // Need _id of existing user record so this call must come
-                        // after `Accounts.createUser` or `Accounts.onCreate`
-                        Roles.addUsersToRoles(id, user.roles);
-                    }
-                }
-                else if (user.username == "supplier") {
-                    var id = Accounts.createUser({
-                        username: user.username,
-                        password: "apple1",
-                        profile: {name: user.name}
-                    });
-                    if (user.roles.length > 0) {
-                        // Need _id of existing user record so this call must come
-                        // after `Accounts.createUser` or `Accounts.onCreate`
-                        Roles.addUsersToRoles(id, user.roles);
-                    }
-                }
-            });
-        }
+//         if (!Meteor.users.find()) {
+//             var users = [
+//                 {name: "Admin User", username: "admin", roles: ['admin']},
+//                 {name: "Employee User", username: "employee", roles: ['employee']},
+//                 {name: "Supplier User", username: "supplier", roles: ['supplier']}
+//             ];
+//             _.each(users, function (user) {
+//                 if (user.username == "admin") {
+//                     var id = Accounts.createUser({
+//                         username: user.username,
+//                         password: "tlsms",
+//                         profile: {name: user.name}
+//                     });
+//                     if (user.roles.length > 0) {
+//                         // Need _id of existing user record so this call must come
+//                         // after `Accounts.createUser` or `Accounts.onCreate`
+//                         Roles.addUsersToRoles(id, user.roles, Roles.GLOBAL_GROUP);
+//                     }
+//                 }
+//                 else if (user.username == "employee") {
+//                     var id = Accounts.createUser({
+//                         username: user.username,
+//                         password: "tlemployee",
+//                         profile: {name: user.name}
+//                     });
+//                     if (user.roles.length > 0) {
+//                         // Need _id of existing user record so this call must come
+//                         // after `Accounts.createUser` or `Accounts.onCreate`
+//                         Roles.addUsersToRoles(id, user.roles);
+//                     }
+//                 }
+//                 else if (user.username == "supplier") {
+//                     var id = Accounts.createUser({
+//                         username: user.username,
+//                         password: "apple1",
+//                         profile: {name: user.name}
+//                     });
+//                     if (user.roles.length > 0) {
+//                         // Need _id of existing user record so this call must come
+//                         // after `Accounts.createUser` or `Accounts.onCreate`
+//                         Roles.addUsersToRoles(id, user.roles);
+//                     }
+//                 }
+//             });
+//         }
 //     });
 //     Meteor.publish('companies_Test', function () {
 //         if (Roles.userIsInRole(this.userId, ['admin', 'employee'])) {
@@ -1511,21 +1517,21 @@ if (Meteor.isClient) {
 
 //Routing Functionality that sets up the URLs
 
-Router.route('/', function () {
-    this.render('home');
-});
-
-Router.route('/teachers', function () {
-    this.render('teacher_login_page');
-});
-
-Router.route('/teachers/home', function () {
-    this.render('teacher_home_page');
-});
-
-Router.route('/students', function () {
-    this.render('student_login_page');
-});
+// Router.route('/', function () {
+//     this.render('home');
+// });
+//
+// Router.route('/teachers', function () {
+//     this.render('teacher_login_page');
+// });
+//
+// Router.route('/teachers/home', function () {
+//     this.render('teacher_home_page');
+// });
+//
+// Router.route('/students', function () {
+//     this.render('student_login_page');
+// });
 
 //
 // Router.route('/login');

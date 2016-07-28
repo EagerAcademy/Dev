@@ -1,6 +1,7 @@
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { BlazeLayout } from 'meteor/kadira:blaze-layout';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
+import { Factory } from 'meteor/factory';
 
 // Import to load these templates
 import '../../ui/layouts/app-body.js';
@@ -10,13 +11,28 @@ import '../../ui/pages/app-not-found.js';
 
 // Import to override accounts templates
 import '../../ui/accounts/accounts-templates.js';
-
+import '../../ui/layouts/app-body.html';
 
 FlowRouter.route('/', {
   name: 'App.home',
   action() {
-    BlazeLayout.render('App_body', { main: 'app_rootRedirector' });
-  },
+      console.log("FlowRouter: Rendered Homepage");
+      BlazeLayout.render('App_Body', { main: 'main' });
+
+  }
+});
+
+FlowRouter.route('/blog/:postId', {
+    action: function(params, queryParams) {
+        console.log("Yeah! We are on the post:", params.postId);
+    }
+});
+
+FlowRouter.route('/students', {
+  name: 'App.studentLoginPage',
+  action() {
+    BlazeLayout.render('App_Body', { main: 'student_login_page' });
+  }
 });
 
 /*

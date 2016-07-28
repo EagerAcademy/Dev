@@ -1,3 +1,4 @@
+
 <template name="main" xmlns="http://www.w3.org/1999/html">
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
@@ -40,14 +41,17 @@
                     </ul>
                 </div>
             {{/if}}
+
         </div>
     </nav>
+
     <br>
     <br>
     <br>
     <br>
+    <!--<h1>WHERE IS THIS VIEWING AT</h1>-->
     <div class="container">
-        {{> yield}}
+        {{> home}}
     </div>
     <div class="container">
         <footer>
@@ -55,6 +59,10 @@
         </footer>
     </div>
 </template>
+
+<!--<template name="App_body">-->
+    <!--{{> Template.dynamic template=main}}-->
+<!--</template>-->
 
 <template name="login">
     <center>
@@ -169,7 +177,7 @@
 <template name="home">
     {{#if currentUser}}
         <center>
-            <img src="../public/images/EA_Logo.jpg" alt="home_Logo" width="400" height="194" align="middle"><br>
+            <img src="/images/EA_Logo.jpg" alt="home_Logo" width="400" height="194" align="middle"><br>
         </center>
     {{else}}
         <center>

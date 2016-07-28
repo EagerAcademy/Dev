@@ -24,7 +24,6 @@ accounts-base
 http
 email
 spiderable
-iron:router
 natestrauser:font-awesome
 matb33:collection-hooks
 perak:user-roles
@@ -37,3 +36,8 @@ mrt:moment
 rajit:bootstrap3-datepicker
 mizzao:bootboxjs
 twbs:bootstrap
+kadira:flow-router
+kadira:blaze-layout
+useraccounts:core
+aldeed:simple-schema
+dburles:factory

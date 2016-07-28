@@ -8,10 +8,12 @@ import { Template } from 'meteor/templating';
 import { ActiveRoute } from 'meteor/zimme:active-route';
 import { FlowRouter } from 'meteor/kadira:flow-router';
 import { TAPi18n } from 'meteor/tap:i18n';
+import { Factory } from 'meteor/dburles:factory';
 
 import { insert } from '../../api/lists/methods.js';
 
 import '../components/loading.js';
+import '/imports/startup/client/routes.js';
 
 const CONNECTION_ISSUE_TIMEOUT = 5000;
 
