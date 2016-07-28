@@ -32,7 +32,7 @@ class CoursesCollection extends Mongo.Collection {
     Todos.remove({ listId: selector });
     return super.remove(selector, callback);
   }*/
-  
+
 }
 
 export const Courses = new CoursesCollection('Courses');
@@ -83,8 +83,9 @@ Courses.attachSchema(Courses.schema);
 Courses.publicFields = {
   name: 1,
   courseId: 1,
-  teacher: 1,
+  teacherId: 1,
   studentCount: 1,
+  assignments: 1,
 };
 
 /*

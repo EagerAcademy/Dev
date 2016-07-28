@@ -30,7 +30,7 @@ class StudentsCollection extends Mongo.Collection {
     incompleteCountDenormalizer.afterRemoveTodos(todos);
     return result;
   }*/
-  
+
 }
 
 export const Students = new StudentsCollection('Students');
@@ -84,20 +84,22 @@ Students.schema = new SimpleSchema({
     label: "Current number of acquired points",
     defaultValue: 0,
   },
-  courseSchedule: { type: [Courses],}
-  
+  courseSchedule: { type: [Courses],} //Courses a student is currently enrolled in; cleared when course complete
+
 });
 
 Students.attachSchema(Students.schema);
 
 // This represents the keys from Student objects that should be published to the client.
 Students.publicFields = {
+  _id: 1,
   studentId: 1,
   schoolId: 1,
   firstName: 1,
   lastName: 1,
   email: 1,
   points: 1,
+  courseSchedule: 1,
 };
 
 /*
@@ -116,5 +118,5 @@ Students.helpers({
   school() {
     return this.schoolId;
   },
-  
+
 });
