@@ -11,17 +11,59 @@ import '../../ui/pages/app-not-found.js';
 // Import to override accounts templates
 import '../../ui/accounts/accounts-templates.js';
 
-FlowRouter.route('/lists/:_id', {
-  name: 'Lists.show',
-  action() {
-    BlazeLayout.render('App_body', { main: 'Lists_show_page' });
-  },
-});
 
 FlowRouter.route('/', {
   name: 'App.home',
   action() {
     BlazeLayout.render('App_body', { main: 'app_rootRedirector' });
+  },
+});
+
+/*
+** GET relavent student data
+      - Courses
+      - Points
+      - Assignments
+*/
+FlowRouter.route('/studentData/:studentId', {
+  name: 'App.student.home',
+  action: function(params, queryParams){
+    //TODO
+  }
+});
+
+/*
+** GET relavent teacher data
+      - Courses
+*/
+FlowRouter.route('/teacherData/:teacherId', {
+  name: 'App.teacher.home',
+  action: function(params, queryParams){
+    //TODO
+  }
+});
+
+/*
+** GET relevant course data
+      - Students in course
+      - Teacher of course
+      - Assignments for course
+*/
+FlowRouter.route('/courseData/:courseId', {
+  name: 'App.course',
+  action: function(params, queryParams){
+    //TODO
+  }
+});
+
+/*
+** TEMPLATE ROUTES
+** ::START::
+*/
+FlowRouter.route('/lists/:_id', {
+  name: 'Lists.show',
+  action() {
+    BlazeLayout.render('App_body', { main: 'Lists_show_page' });
   },
 });
 
@@ -48,3 +90,6 @@ AccountsTemplates.configureRoute('resetPwd', {
   name: 'resetPwd',
   path: '/reset-password',
 });
+/*
+** ::END::
+*/
