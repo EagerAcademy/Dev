@@ -11,6 +11,20 @@ import { Teachers } from '../teachers/teachers.js';
 /*
 --::TODO::--
 */
+export const registerStudent = new ValidatedMethod({
+  /*name: 'student.registerStudent',
+  validate: new SimpleSchema({
+    
+  }).validate(),
+  run(){
+    
+  },*/
+  
+});
+
+/*
+--::TODO::--
+*/
 export const updatePoints = new ValidatedMethod({
   /*name: 'student.updatePoints',
   validate: new SimpleSchema({
