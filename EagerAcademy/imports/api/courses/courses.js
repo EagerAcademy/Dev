@@ -11,7 +11,7 @@ import { Teachers } from '../../teachers/teachers.js';
 /*
 --::TODO::--
 */
-//Mongo Methods
+//Mongo Methods _ Needed later
 class CoursesCollection extends Mongo.Collection {
   /*insert(list, callback) {
     const ourList = list;
