@@ -95,7 +95,7 @@ Teachers.schema = new SimpleSchema({
 Teachers.attachSchema(Teachers.schema);
 
 // This represents the keys from Teacher objects that should be published to the client.
-Students.publicFields = {
+Teachers.publicFields = {
   teacherId: 1,
   schoolId: 1,
   formalName: 1,

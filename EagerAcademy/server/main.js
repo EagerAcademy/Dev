@@ -26,7 +26,7 @@ Meteor.startup(() => {
             else if (user.username == "student") {
                 var id = Accounts.createUser({
                     username: user.username,
-                    password: "books",
+                    password: "eastudent",
                     profile: {name: user.name}
                 });
                 if (user.roles.length > 0) {
@@ -38,7 +38,7 @@ Meteor.startup(() => {
             else if (user.username == "teacher") {
                 var id = Accounts.createUser({
                     username: user.username,
-                    password: "apple",
+                    password: "eateacher",
                     profile: {name: user.name}
                 });
                 if (user.roles.length > 0) {
