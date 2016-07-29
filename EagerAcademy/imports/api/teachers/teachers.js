@@ -6,6 +6,8 @@ import faker from 'faker';
 
 import { Courses } from '../../courses/courses.js';
 import { Students } from '../../students/students.js';
+import { Schools } from '../../schools/schools.js';
+import { Assignments } from '../../assignments/assignments.js';
 
 /*
 --::TODO::--
@@ -87,6 +89,7 @@ Teachers.schema = new SimpleSchema({
     label: "Courses taught",
     minCount: 1,
   },
+  classroom: { type: [Students], },
 });
 
 Teachers.attachSchema(Teachers.schema);
@@ -98,6 +101,7 @@ Students.publicFields = {
   formalName: 1,
   email: 1,
   courses: 1,
+  classroom: 1,
 };
 
 /*
@@ -106,6 +110,8 @@ Students.publicFields = {
 // Factory for defining student
 Factory.define('teacher', Teachers, {
   _id: () => _.uniqueId(),
+  schoolId: () => Factory.get('school'),
+  
 });
 
 /*
