@@ -59,7 +59,7 @@ Schools.publicFields = {
 */
 // Factory for defining course
 Factory.define('school', Schools, {
-  
+  _id: () => _.uniqueId(),
 });
 
 Schools.helpers({

@@ -7,14 +7,14 @@ Meteor.startup(() => {
     if (!Meteor.users.find()) {
         var users = [
             {name: "Admin User", username: "admin", roles: ['admin']},
-            {name: "Employee User", username: "employee", roles: ['employee']},
-            {name: "Supplier User", username: "supplier", roles: ['supplier']}
+            {name: "Student User", username: "student", roles: ['student']},
+            {name: "Teacher User", username: "teacher", roles: ['teacher']}
         ];
         _.each(users, function (user) {
             if (user.username == "admin") {
                 var id = Accounts.createUser({
                     username: user.username,
-                    password: "tlsms",
+                    password: "eaadmin",
                     profile: {name: user.name}
                 });
                 if (user.roles.length > 0) {
@@ -23,10 +23,10 @@ Meteor.startup(() => {
                     Roles.addUsersToRoles(id, user.roles, Roles.GLOBAL_GROUP);
                 }
             }
-            else if (user.username == "employee") {
+            else if (user.username == "student") {
                 var id = Accounts.createUser({
                     username: user.username,
-                    password: "tlemployee",
+                    password: "eastudent",
                     profile: {name: user.name}
                 });
                 if (user.roles.length > 0) {
@@ -35,10 +35,10 @@ Meteor.startup(() => {
                     Roles.addUsersToRoles(id, user.roles);
                 }
             }
-            else if (user.username == "supplier") {
+            else if (user.username == "teacher") {
                 var id = Accounts.createUser({
                     username: user.username,
-                    password: "apple1",
+                    password: "eateacher",
                     profile: {name: user.name}
                 });
                 if (user.roles.length > 0) {

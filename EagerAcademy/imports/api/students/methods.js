@@ -7,6 +7,12 @@ import { DDPRateLimiter } from 'meteor/ddp-rate-limiter';
 import { Students } from './students.js';
 import { Courses } from '../courses/courses.js';
 import { Teachers } from '../teachers/teachers.js';
+import { Assignments } from '../assignments/assignments.js';
+import { Schools } from '../schools/schools.js';
+
+const STUDENT_ID_ONLY = new SimpleSchema({
+  studentId: { type: String },
+}).validator();
 
 /*
 --::TODO::--
@@ -15,23 +21,26 @@ export const registerStudent = new ValidatedMethod({
   /*name: 'student.registerStudent',
   validate: new SimpleSchema({
     
-  }).validate(),
+  }).validator(),
   run(){
     
   },*/
   
 });
 
-/*
---::TODO::--
-*/
+
 export const updatePoints = new ValidatedMethod({
-  /*name: 'student.updatePoints',
+  name: 'student.updatePoints',
   validate: new SimpleSchema({
-    
-  }).validate(),
-  run()
-  */
+    studentId: {type: String},
+    points: {type: Number },
+  }).validator(),
+  run({ studentId, assignmentId }){
+    const student = Students.findOne(studentId);
+    const assignment = Assigntments.findOne(assignmentId);
+    const course = Courses.findOne(assignment.courseId);
+    //--::TODO::--
+  },
 });
 
 
@@ -39,14 +48,21 @@ export const updatePoints = new ValidatedMethod({
 --::TODO::--
 */
 export const addCourse = new ValidatedMethod({
- /* name: 'student.addCourse',
+  name: 'student.addCourse',
   validate: new SimpleSchema({
+    studentId: {type: String},
+  }).validator(),
+  run({ studentId, courseId }){
+    const student = Students.findOne(studentId);
+    const course = Courses.findOne(courseId);
     
-  }),*/
+    
+  },
 });
 
 
 const STUDENTS_METHODS = _.pluck([
+  registerStudent,
   updatePoints,
   addCourse,
 ], 'name');

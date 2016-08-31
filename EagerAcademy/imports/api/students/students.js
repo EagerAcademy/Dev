@@ -6,6 +6,7 @@ import faker from 'faker';
 
 import { Courses } from '../../courses/courses.js';
 import { Teachers } from '../../teachers/teachers.js';
+import { Schools } from '../../schools/schools.js';
 
 /*
 --::TODO::--
@@ -108,6 +109,7 @@ Students.publicFields = {
 // Factory for defining student
 Factory.define('student', Students, {
   _id: () => _.uniqueId(),
+  schoolId: () => Factory.get('school'),
 });
 
 /*
