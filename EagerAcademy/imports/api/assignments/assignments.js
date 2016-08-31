@@ -21,8 +21,8 @@ import { Teachers } from '../../teachers/teachers.js';
 */
 //Mongo Methods
 class AssignmentsCollection extends Mongo.Collection {
-  
-  
+
+
 }
 
 export const Assignments = new AssignmentsCollection('Assignments');
@@ -64,6 +64,12 @@ Assignments.schema = new SimpleSchema({
     type: String,
     max: 500,
   },
+  weight: {
+    type: Number,
+  },
+  grade: {
+    type: Number,
+  },
   teacherComments: {
     type: String,
     max: 500,
@@ -88,7 +94,7 @@ Assignments.publicFields = {
 */
 // Factory for defining assignment
 Factory.define('assignment', Assignments, {
-  
+
 });
 
 /*
@@ -96,5 +102,5 @@ Factory.define('assignment', Assignments, {
 */
 // Helpers - Getter/Setter
 Assignments.helpers({
-  
+
 });
